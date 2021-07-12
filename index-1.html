@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> Profile website</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.js">
+  <body>
+<div class="main">
+    <div class="container">
+        <div class="image"> <img alt="" id="profileImage" height ="200", width = "200">
+        </div>
+        <div class="profileDetails">
+         
+    <div class="full-name" id="fullName"></div>
+    <div class="bio"><span id ="bio"></span></div>
+
+
+        </div>
+    
+  
+      
+      
+    
+      
+      <div class="content">
+      
+        <nav>
+          <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="index-1.html">My Projects</a></li>
+            
+          </ul>
+        </nav>
+  
+        <div class="nav-info clearfix" id="Overview">
+          <div class="one-half">
+            <div class="info" id="Overview">
+                <!-------------------------------------------->
+                <h3>Public Repository</h3>
+              <div class="Repository" >
+              <a href  = "https://github.com/jimmy-coder-717/My-web">My web<br></a>
+              <a href  = "https://github.com/jimmy-coder-717/my_django_project">Django Project<br></a>
+              <a href = "https://github.com/jimmy-coder-717/DataSet">Data Set</a>
+              </div>
+
+        
+            </div> <!-- end info -->
+          </div> <!-- end one-half -->
+  
+          <div class="one-half">
+
+  
+          </div> <!-- end one-half -->
+  
+        </div> <!-- end nav-info #offices-->
+        
+
+        
+    
+        
+
+        
+        <div class="nav-info-behind clearfix">
+          
+        </div> <!-- end nav-info-behind-->
+        
+      </div> <!-- end content -->
+      
+    </div> <!-- end container -->
+    
+  </div> 
+
+  <script>
+      fetch("https://api.github.com/users/jimmy-coder-717")
+      .then(response => response.json())
+      .then(function(data){
+          console.log(data)
+          document.getElementById('profileImage').src = data['avatar_url']
+          document.getElementById('fullName').textContent = data['name']
+          document.getElementById('bio').textContent = data['bio']
+        
+
+      })
+  </script>
+
+</body>
+
+</html>
