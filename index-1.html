@@ -41,10 +41,8 @@
             <div class="info" id="Overview">
                 <!-------------------------------------------->
                 <h3>Public Repository</h3>
-              <div class="Repository" >
-              <a href  = "https://github.com/jimmy-coder-717/My-web">My web<br></a>
-              <a href  = "https://github.com/jimmy-coder-717/my_django_project">Django Project<br></a>
-              <a href = "https://github.com/jimmy-coder-717/DataSet">Data Set</a>
+              <div class="Repository" id="repo">
+            
               </div>
 
         
@@ -85,6 +83,20 @@
         
 
       })
+
+      fetch("https://api.github.com/users/jimmy-coder-717/repos")
+.then(response =>response.json())
+.then(function(data){
+console.log(data)
+let m = data.length;
+var n = parseInt(m);
+let repoName = "";
+for(i = 0;i < n; i++ )
+{
+repoName += " Repo " + i +" "+ data[i]['name'] +"<br>";
+}
+document.getElementById('repo').innerHTML = repoName
+})
   </script>
 
 </body>
